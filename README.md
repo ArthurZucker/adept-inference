@@ -24,8 +24,8 @@ The scripts are set up to expect the model folder to be placed within the code d
 🤗 HuggingFace Integration
 -----------
 The architecture is officially supported in `transformers` 🥳 This allows anyone to finetune, quantize and use all the awesome features of the hugging face ecosystem! 
-- Chat model :
-- Base model :
+- Chat model : [adept/persimmon-8b-chat](hf.co/adept/persimmon-8b-chat)
+- Base model : [adept/persimmon-8b-base](hf.co/adept/persimmon-8b-base)
 
 Sample usage:
 
