@@ -21,6 +21,28 @@ Untar the model into its own directory via `tar -xvf 8b_base_model_release.tar` 
 
 The scripts are set up to expect the model folder to be placed within the code directory, but you can place it elsewhere and modify the scripts accordingly.
 
+🤗 HuggingFace Integration
+-----------
+The architecture is officially supported in `transformers` 🥳 This allows anyone to finetune, quantize and use all the awesome features of the hugging face ecosystem! 
+- Chat model :
+- Base model :
+
+Sample usage:
+
+```python
+>>> from transformers import AutoModelForCausalLM, AutoTokenizer
+
+>>> model = AutoModelForCausalLM.from_pretrained("adept/persimmon-8b-chat", device_map = "auto")
+>>> tokenizer = AutoTokenizer.from_pretrained("adept/persimmon-8b-chat")
+>>> input_ids = tokenizer.encode("human: What should I eat tonight?\n\nadept:", return_tensors = "pt")
+
+>>> generated_ids = model.generate(inputs_ids)
+>>> print(tokenizer.decode(generated_ids[0])
+human: What should I eat tonight?
+
+nadept:
+```
+
 Building Docker
 -----------
 
