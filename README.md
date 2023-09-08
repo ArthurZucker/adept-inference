@@ -33,14 +33,14 @@ Sample usage:
 >>> from transformers import AutoModelForCausalLM, AutoTokenizer
 
 >>> model = AutoModelForCausalLM.from_pretrained("adept/persimmon-8b-chat", device_map = "auto")
->>> tokenizer = AutoTokenizer.from_pretrained("adept/persimmon-8b-chat")
+>>> tokenizer = AutoTokenizer.from_pretrained("adept/persimmon-8b-chat", use_fast = False)
 >>> input_ids = tokenizer.encode("human: What should I eat tonight?\n\nadept:", return_tensors = "pt")
 
->>> generated_ids = model.generate(inputs_ids)
->>> print(tokenizer.decode(generated_ids[0])
+>>> generated_ids = model.generate(input_ids)
+>>> print(tokenizer.decode(generated_ids[0], skip_special_tokens = True)
 human: What should I eat tonight?
 
-nadept:
+adept: It's hard to say without knowing your preferences
 ```
 
 Building Docker
